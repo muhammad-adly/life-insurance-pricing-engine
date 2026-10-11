@@ -117,6 +117,39 @@ def sensitivity_test(face_amount, term, age, sex, smoker, interest, lapse, gross
     return new_col
 
 
+policies["apv"] = [
+    get_apv(face_amount, term, age, sex, smoker)
+    for face_amount, term, age, sex, smoker in zip(
+        policies["face_amount"],
+        policies["term"],
+        policies["issue_age"],
+        policies["sex"],
+        policies["smoker"]
+    )
+]
+
+policies["net_annual_premium"] = [
+    get_net_annual_premium(age, term, sex, smoker, apv)
+    for age, term, sex, smoker, apv in zip(
+        policies["issue_age"],
+        policies["term"],
+        policies["sex"],
+        policies["smoker"],
+        policies["apv"]
+    )
+]
+
+policies["gross_premium"] = [
+    get_gross_premium(age, term, sex, smoker, apv)
+    for age, term, sex, smoker, apv in zip(
+        policies["issue_age"],
+        policies["term"],
+        policies["sex"],
+        policies["smoker"],
+        policies["apv"]
+    )
+]
+
 # ============================================================
 # STREAMLIT DASHBOARD
 # ============================================================
