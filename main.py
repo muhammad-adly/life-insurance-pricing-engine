@@ -410,10 +410,12 @@ portfolio_margin = (
 
 col1, col2, col3, col4 = st.columns(4)
 
+delta_value = stressed_profit - base_profit
+
 col1.metric(
     "Stressed Profit NPV",
     f"${stressed_profit:,.2f}",
-    delta=f"{stressed_profit:,.2f}",
+    delta=f"{'-' if delta_value < 0 else '+'}${abs(delta_value):,.2f}",
     delta_color="normal"
 )
 
