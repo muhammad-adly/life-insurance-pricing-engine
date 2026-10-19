@@ -1,7 +1,7 @@
 # Life Insurance Pricing & Profit Testing Dashboard
 
 Interactive Streamlit dashboard for n-year term-life insurance pricing under competing death/lapse decrements and sensitivity testing.
-insurance-pricing-engine.streamlit.app
+-insurance-pricing-engine.streamlit.app
 
 ## Run locally
 
